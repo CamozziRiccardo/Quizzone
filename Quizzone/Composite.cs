@@ -1,17 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-public interface Domanda
+namespace Esercitazione_test
 {
-    void add(Domanda domanda);
+    //classe interfaccia
+    public interface IQuestion
+    {
+        string Text { get; set; }
+        void Display();
+        bool CheckAnswer(string userAnswer);
+    }
 
-    void remove(int index);
-
-    Domanda getChild(int index);
-
-    double punteggio();
+    //classe astratta
+    public abstract class Question : IQuestion
+    {
+        public string Text { get; set; }
+        public abstract void Display();
+        public abstract bool CheckAnswer(string userAnswer);
+    }
 }

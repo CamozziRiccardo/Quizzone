@@ -4,51 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-public class Vero_o_Falso : Domanda
+namespace Esercitazione_test
 {
-    //attributi
-    private string _dom;
-    private int _risposta;
+    public class TrueFalseQuestion : Question
+    {
+        public bool CorrectAnswer { get; set; }
 
-    public string Dom
-    {
-        get { return _dom; }
-        set { _dom = value; }
-    }
-    public int Risposta
-    {
-        get { return _risposta; }
-        set { _risposta = value; }
-    }
+        public TrueFalseQuestion(string text, bool correctAnswer)
+        {
+            Text = text;
+            CorrectAnswer = correctAnswer;
+        }
 
-    //costruttori
-    public Vero_o_Falso()
-    {
-        Dom = "";
-        Risposta = 0;
-    }
-    public Vero_o_Falso(string dom, int risposta)
-    {
-        Dom = dom;
-        Risposta = risposta;
-    }
-    public Vero_o_Falso(Vero_o_Falso n)
-    {
-        Dom = n.Dom;
-        Risposta = n.Risposta;
-    }
+        public override void Display()
+        {
+            Console.WriteLine($"{Text} (True or False)");
+        }
 
-    //Metodi interfaccia
-    public void add(Domanda d)
-    {
-
-    }
-    public void remove(int index)
-    {
-
-    }
-    public Domanda getChild()
-    {
-
+        public override bool CheckAnswer(string userAnswer)
+        {
+            return userAnswer.ToLower() == "true" == CorrectAnswer;
+        }
     }
 }

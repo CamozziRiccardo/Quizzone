@@ -1,4 +1,4 @@
-﻿namespace Esercitazione_test
+﻿namespace Quizzone
 {
     partial class MainForm
     {

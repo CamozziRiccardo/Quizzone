@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="genericQuestion.cs" />
     <Compile Include="Vero o Falso.cs" />
     <Compile Include="Risposta Singola.cs" />
     <Compile Include="Test.cs" />

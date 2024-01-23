@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Esercitazione_test
+namespace Quizzone
 {
     public class Quiz : IQuestion
     {

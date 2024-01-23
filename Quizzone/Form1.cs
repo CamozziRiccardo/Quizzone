@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -58,6 +56,55 @@ namespace Esercitazione_test
             }
 
             QuestionListBox.Items.Add(quiz.questions[quiz.questions.Count - 1].Text);
+        }
+
+        private IQuestion CreateTrueFalseQuestion()
+        {
+            string text;
+            bool correctAnswer;
+
+            text = TextTextBox.Text;
+            correctAnswer = Convert.ToBoolean(CorrectAnswerTextBox.Text);
+
+            return new TrueFalseQuestion(text, correctAnswer);
+        }
+
+        private IQuestion CreateMultipleChoiceQuestion()
+        {
+            string text;
+            List<string> correctAnswers;
+
+            text = TextTextBox.Text;
+            correctAnswers = new List<string> { Choice1TextBox.Text, Choice2TextBox.Text };
+
+            return new MultipleChoiceQuestion(text, correctAnswers);
+        }
+
+        private IQuestion CreateSingleChoiceQuestion()
+        {
+            string text;
+            string correctAnswer;
+
+            text = TextTextBox.Text;
+            correctAnswer = Choice1TextBox.Text;
+
+            return new SingleChoiceQuestion(text, correctAnswer);
+        }
+
+        private void DisplayButton_Click(object sender, EventArgs e)
+        {
+            quiz.Display();
+        }
+
+        private void GetScoreButton_Click(object sender, EventArgs e)
+        {
+            string userAnswers;
+            double score;
+
+            userAnswers = UserAnswersTextBox.Text;
+            score = quiz.GetScore(userAnswers);
+
+            MessageBox.Show($"Your score is: {score}%");
         }
     }
 }

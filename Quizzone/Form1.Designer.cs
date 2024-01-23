@@ -1,6 +1,6 @@
-﻿namespace Quizzone
+﻿namespace Esercitazione_test
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Variabile di progettazione necessaria.

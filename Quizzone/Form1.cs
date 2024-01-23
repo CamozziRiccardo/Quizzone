@@ -30,11 +30,13 @@ namespace Quizzone
             }
             else if (questionType == "Scelta Multipla")
             {
-                sceltaMultipla.Show();
+                scelte.Show();
+                Choice2TextBox.Show();
             }
             else if (questionType == "Scelta Singola")
             {
-                sceltaSingola.Show();
+                scelte.Show();
+                Choice2TextBox.hide();
             }
         }
 
@@ -74,7 +76,7 @@ namespace Quizzone
             string text;
             List<string> correctAnswers;
 
-            text = TextTextBox.Text;
+            text = TextTextBox1.Text;
             correctAnswers = new List<string> { Choice1TextBox.Text, Choice2TextBox.Text };
 
             return new MultipleChoiceQuestion(text, correctAnswers);
@@ -85,7 +87,7 @@ namespace Quizzone
             string text;
             string correctAnswer;
 
-            text = TextTextBox.Text;
+            text = TextTextBox1.Text;
             correctAnswer = Choice1TextBox.Text;
 
             return new SingleChoiceQuestion(text, correctAnswer);
